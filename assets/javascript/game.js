@@ -320,6 +320,9 @@ $('.mandoDiv').click(function() {
         mando.ap += mando.baseAp;
         healthDisp();
         if (mando.hp < 1) {
+          if (baby.hp < 1) {
+            baby.hp = 0;
+          }
           mando.hp = 0;
           healthDisp();
           $('.popup1').text('You died. Game Over');
@@ -430,17 +433,17 @@ $('.droidDiv').click(function() {
   $('.attackBtn').click(function() {
     if (attack) {
       if (yourOpponent === kuiil) {
-        baby.hp -= kuiil.cap;
-        kuiil.hp -= baby.ap;
-        $('.popup1').text('Baby Yoda attacks for ' + baby.ap);
+        droid.hp -= kuiil.cap;
+        kuiil.hp -= droid.ap;
+        $('.popup1').text('Droid IG-11 attacks for ' + droid.ap);
         $('.popup2').text('Kuiil counter attacks for ' + kuiil.cap);
-        baby.ap += baby.baseAp;
+        droid.ap += droid.baseAp;
         healthDisp();
-        if (baby.hp < 1) {
+        if (droid.hp < 1) {
           if (kuiil.hp < 1) {
             kuiil.hp = 0;
           }
-          baby.hp = 0;
+          droid.hp = 0;
           healthDisp();
           $('.popup1').text('You died. Game Over');
           $('.popup2').text('Press button to retry');
@@ -458,17 +461,17 @@ $('.droidDiv').click(function() {
         winner(wins);
       }
       if (yourOpponent === mando) {
-        baby.hp -= mando.cap;
-        mando.hp -= baby.ap;
-        $('.popup1').text('Baby Yoda attacks for ' + baby.ap);
+        droid.hp -= mando.cap;
+        mando.hp -= droid.ap;
+        $('.popup1').text('Droid IG-11 attacks for ' + droid.ap);
         $('.popup2').text('The Mandalorian counter attacks for ' + mando.cap);
-        baby.ap += baby.baseAp;
+        droid.ap += droid.baseAp;
         healthDisp();
-        if (baby.hp < 1) {
+        if (droid.hp < 1) {
           if (mando.hp < 1) {
             mando.hp = 0;
           }
-          baby.hp = 0;
+          droid.hp = 0;
           healthDisp();
           $('.popup1').text('You died. Game Over');
           $('.popup2').text('Press button to retry');
@@ -522,6 +525,10 @@ $('.droidDiv').click(function() {
     }
   });
 }); //End of click
+//
+//
+//
+//
 
 $('.kuiilDiv').click(function() {
   if (!fighterSelected) {
@@ -602,13 +609,13 @@ $('.kuiilDiv').click(function() {
         winner(wins);
       }
       if (yourOpponent === mando) {
-        baby.hp -= mando.cap;
-        mando.hp -= baby.ap;
-        $('.popup1').text('Baby Yoda attacks for ' + baby.ap);
+        kuiil.hp -= mando.cap;
+        mando.hp -= kuiil.ap;
+        $('.popup1').text('Kuiil attacks for ' + kuiil.ap);
         $('.popup2').text('The Mandalorian counter attacks for ' + mando.cap);
-        baby.ap += baby.baseAp;
+        kuiil.ap += kuiil.baseAp;
         healthDisp();
-        if (baby.hp < 1) {
+        if (kuiil.hp < 1) {
           if (mando.hp < 1) {
             mando.hp = 0;
           }
@@ -630,17 +637,17 @@ $('.kuiilDiv').click(function() {
         winner(wins);
       }
       if (yourOpponent === droid) {
-        baby.hp -= droid.cap;
-        droid.hp -= baby.ap;
-        $('.popup1').text('Baby Yoda attacks for ' + baby.ap);
+        kuiil.hp -= droid.cap;
+        droid.hp -= kuiil.ap;
+        $('.popup1').text('Kuiil attacks for ' + kuiil.ap);
         $('.popup2').text('Droid IG-11 counter attacks for ' + droid.cap);
-        baby.ap += baby.baseAp;
+        kuiil.ap += kuiil.baseAp;
         healthDisp();
-        if (baby.hp < 1) {
+        if (kuiil.hp < 1) {
           if (droid.hp < 1) {
             droid.hp = 0;
           }
-          baby.hp = 0;
+          kuiil.hp = 0;
           healthDisp();
           $('.popup1').text('You died. Game Over');
           $('.popup2').text('Press button to retry');
@@ -666,6 +673,10 @@ $('.kuiilDiv').click(function() {
     }
   });
 }); //End of click
+//
+//
+//
+//
 
 // Reset Button
 $('.restart').click(function() {
