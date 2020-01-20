@@ -79,9 +79,10 @@ body {
   margin: 140px 0 0 0;
   border: 2px #000 solid;
   border-radius: 5px;
+  display: block;
 }
 
-.attackBtn:hover {
+.attackBtn:active {
   background-color: tomato;
 }
 
@@ -118,25 +119,50 @@ body {
 
 .popupDiv {
   font-family: 'Roboto', sans-serif;
-  position: relative;
-  top: -500px;
-  right: -380px;
+  position: absolute;
+  top: 310px;
+  right: 330px;
   width: 250px;
   height: 210px;
-  border: 1px #fff solid;
   text-align: center;
   color: tomato;
   text-shadow: 2px 2px 3px #000;
   z-index: -1;
   font-size: 20px;
+  border: pink 1px solid;
 }
 
 .popup1 {
-  border: 1px pink solid;
   margin-top: 20px;
 }
 
 .popup2 {
-  border: red 1px solid;
   margin-top: 120px;
+}
+
+.restart {
+  background-color: #bbb;
+  font-size: 30px;
+  height: 50px;
+  margin: 140px 0 0 0;
+  border: 2px #000 solid;
+  border-radius: 5px;
+  animation-name: restart;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  cursor: pointer;
+  display: none;
+}
+
+.restart:hover {
+  border: 2px #e4a572 solid;
+}
+
+@keyframes restart {
+  0% {
+    background-color: #bbb;
+  }
+  50% {
+    background-color: tomato;
+  }
 }
