@@ -119,9 +119,10 @@ body {
 
 .popupDiv {
   font-family: 'Roboto', sans-serif;
-  position: absolute;
-  top: 310px;
-  right: 330px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+  top: -500px;
   width: 250px;
   height: 210px;
   text-align: center;
