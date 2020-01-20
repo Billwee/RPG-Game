@@ -11,8 +11,14 @@ body {
 }
 
 .titleDiv {
+  position: static;
   margin-top: 20px;
   text-align: center;
+}
+
+.title {
+  margin: auto;
+  width: 1000px;
 }
 
 .rpgGame {
@@ -57,4 +63,80 @@ body {
   padding: 10px;
   width: 800px;
   margin: 20px auto 0 auto;
+}
+
+.fightBoard {
+  width: 1000px;
+  margin: auto;
+  text-align: center;
+  display: block;
+}
+
+.attackBtn {
+  background-color: #bbb;
+  font-size: 30px;
+  height: 50px;
+  margin: 140px 0 0 0;
+  border: 2px #000 solid;
+  border-radius: 5px;
+}
+
+.attackBtn:hover {
+  background-color: tomato;
+}
+
+.fightContainer {
+  display: flex;
+  width: 1000px;
+  justify-content: space-around;
+  margin: 0 auto 0 auto;
+}
+
+.boardText {
+  font-family: 'Roboto', sans-serif;
+  font-size: 30px;
+  margin: 10px;
+  text-shadow: 2px 2px 3px #e4a572;
+  white-space: nowrap;
+}
+
+.selectOpponent {
+  font-family: 'Roboto', sans-serif;
+  background: transparent;
+  width: 192px;
+  height: 229px;
+  font-size: 40px;
+  text-align: center;
+  text-shadow: 2px 2px 3px #e4a572;
+  border: #000 1px solid;
+  margin: 0 0 0 15px;
+}
+
+.selectOpponent p {
+  padding-top: 30px;
+}
+
+.popupDiv {
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+  top: -500px;
+  right: -380px;
+  width: 250px;
+  height: 210px;
+  border: 1px #fff solid;
+  text-align: center;
+  color: tomato;
+  text-shadow: 2px 2px 3px #000;
+  z-index: -1;
+  font-size: 20px;
+}
+
+.popup1 {
+  border: 1px pink solid;
+  margin-top: 20px;
+}
+
+.popup2 {
+  border: red 1px solid;
+  margin-top: 120px;
 }

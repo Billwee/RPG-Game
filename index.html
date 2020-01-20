@@ -49,10 +49,36 @@
 
     <div class="fightBoard">
       <div class="fightContainer">
-        <div class="fighterDiv"></div>
-        <div class="opponentDiv"></div>
+        <div class="fighterDiv">
+          <p class="boardText">Your Fighter</p>
+          <div class="fighter">
+            <div class="babyDiv character">
+              <p>Baby Yoda</p>
+              <img src="./assets/images/baby.jpg" alt="" />
+              <p class="babyHealth">####</p>
+            </div>
+          </div>
+        </div>
+        <button class="attackBtn">ATTACK</button>
+        <div class="opponentDiv">
+          <p class="boardText">Your Opponent</p>
+          <div class="opponent">
+            <div class="selectOpponent">
+              <p>Select Your Opponent Below</p>
+            </div>
+            <div class="selectedOpponent"></div>
+          </div>
+        </div>
       </div>
-      <div class="fightersLeft"></div>
+      <div class="fightersLeftDiv">
+        <p class="boardText">Opponents Left</p>
+        <div class="fightersLeft"></div>
+      </div>
+    </div>
+
+    <div class="popupDiv">
+      <div class="popup1">##########</div>
+      <div class="popup2">##########</div>
     </div>
 
     <!-- JS -->
