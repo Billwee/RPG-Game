@@ -1,3 +1,10 @@
+// Welcome to my Mandalorain RPG game!
+
+// Made objects out of each of the characters.
+// Couldn't figure out how to add attack power to
+// itself every time so I made an baseAP variable
+// to use for adding.
+
 var baby = {
   hp: 170,
   ap: 15,
@@ -24,12 +31,20 @@ var kuiil = {
   cap: 15
 };
 
+// These three booleans control my click events and
+// what they should be doing at different points of
+// the game. I used yourOpponent to link the characters
+// to their divs and the wins variable to determine
+// when all the opponents are defeated and you win.
 var fighterSelected = false;
 var fighter = false;
 var attack = false;
 var yourOpponent;
 var wins = 0;
 
+// Used variables for the entire character div so
+// it makes it a lot easier to move the characters
+// around the screen.
 var droidChar =
   '<div class="droidDiv character">' +
   '<p>Droid IG-11</p>' +
@@ -55,12 +70,18 @@ var babyChar =
   '<p class="babyHealth">####</p>' +
   '</div>';
 
+// This function displays each characters health on
+// the page when called. Easier to use this than
+// updating each character individually.
 function healthDisp() {
   $('.babyHealth').text(baby.hp + 'HP');
   $('.mandoHealth').text(mando.hp + 'HP');
   $('.droidHealth').text(droid.hp + 'HP');
   $('.kuiilHealth').text(kuiil.hp + 'HP');
 }
+
+// This function sets the opponents to the waiting area
+// once the fighter has been picked.
 function selectFighter(x, y, z) {
   $('.selectionContainer').css('display', 'none');
   $('.fightBoard').css('display', 'block');
@@ -69,6 +90,8 @@ function selectFighter(x, y, z) {
   fighterSelected = true;
 }
 
+// This determines when the player has defeated
+// every character and stops the game.
 function winner(x) {
   if (x === 3) {
     fighterSelected = false;
@@ -82,16 +105,30 @@ function winner(x) {
   }
 }
 
+// Starting the game
 healthDisp();
 $('.selectionContainer').css('display', 'block');
 $('.fightBoard').css('display', 'none');
 
+// These click events are basically the same besides
+// the placement of the characters in the code. So
+// I'm just going to explain the first one. They're
+// long so I separated them with foward slashes.
 $('.babyDiv').click(function() {
+  // Once a fighter is clicked the others are placed into
+  // the selectFighter function to move everyone into place
+  // the function sets fighterSelected to true. Then fighter
+  // is set to true.
   if (!fighterSelected) {
     $('.fighter').html(this);
     selectFighter(droidChar, mandoChar, kuiilChar);
     fighter = true;
   }
+  // These three click events are for choosing your opponent
+  // if one is clicked its moved into position, refreshes
+  // everyones health displayed, clears the popup text,
+  // changes fighter back to false, attack to true and sets
+  // the opponent.
   $('.mandoDiv').click(function() {
     if (fighter) {
       $('.mandoDiv').remove();
@@ -133,9 +170,14 @@ $('.babyDiv').click(function() {
     attack = true;
     yourOpponent = kuiil;
   });
-
+  // This click event is for the attack stage. Prior to
+  // this the attack button only tells you to select an
+  // opponent because youOppenent is empty.
   $('.attackBtn').click(function() {
     if (attack) {
+      // These 3 conditionals determine which opponent you picked
+      // and the attack button does the fight calculations and
+      // shows the info  in the popup divs.
       if (yourOpponent === kuiil) {
         baby.hp -= kuiil.cap;
         kuiil.hp -= baby.ap;
@@ -143,6 +185,9 @@ $('.babyDiv').click(function() {
         $('.popup2').text('Kuiil counter attacks for ' + kuiil.cap);
         baby.ap += baby.baseAp;
         healthDisp();
+        // If you characters hp reaches zero the attack button is
+        // replaced with a restart button and the popups display
+        // a game over message. HP will never display < 0 either.
         if (baby.hp < 1) {
           if (kuiil.hp < 1) {
             kuiil.hp = 0;
@@ -153,7 +198,11 @@ $('.babyDiv').click(function() {
           $('.popup2').text('Press button to retry');
           $('.attackBtn').css('display', 'none');
           $('.restart').css('display', 'block');
-        } else if (kuiil.hp < 1) {
+        }
+        // This part runs when you opponents hp reaches 0. It also
+        // changes the attack and fighter booleans so you can choose
+        // your next fighter. wins++
+        else if (kuiil.hp < 1) {
           kuiil.hp = 0;
           healthDisp();
           $('.popup1').text('Kuiil has been defeated!');
@@ -162,8 +211,10 @@ $('.babyDiv').click(function() {
           attack = false;
           fighter = true;
         }
+        // Checks if you've won at every attack.
         winner(wins);
       }
+
       if (yourOpponent === mando) {
         baby.hp -= mando.cap;
         mando.hp -= baby.ap;
@@ -192,6 +243,7 @@ $('.babyDiv').click(function() {
         }
         winner(wins);
       }
+
       if (yourOpponent === droid) {
         baby.hp -= droid.cap;
         droid.hp -= baby.ap;
@@ -678,7 +730,7 @@ $('.kuiilDiv').click(function() {
 //
 //
 
-// Reset Button
+// Reset button function for reloading the page
 $('.restart').click(function() {
   window.location.reload();
 });
