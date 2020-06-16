@@ -1,4 +1,6 @@
-# unit-4-game-rpg
+# RPG Game
+
+## Overview
 
 Hello and welcome to my Mandalorian RPG game!
 
@@ -9,3 +11,14 @@ After choosing your fighter, the game will then ask you to choose an opponent. O
 Every attack will increase your fighters AP by the initial amount. Once the opponent's HP reaches <1 they are defeated you can choose your next one. Your AP will not change after defeating an opponent and will continue to rise with each attack. If your HP reaches <1 (even at the same attack as the opponent's reaching <1) you will lose and the attack button will turn into a restart button.
 
 Defeating all three opponents wins the game and changes the attack button into a restart button to reload the page. Good luck and "I have spoken".
+
+## Deployment
+
+You can view the application by [clicking here](https://billwee.github.io/unit-4-game-rpg/)
+
+## Technology Used
+
+- Javascript
+- HTML
+- CSS
+
